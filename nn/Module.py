@@ -19,20 +19,10 @@ class Module(ABC):
         return self.forward(*args, **kwargs)
 
 
-class Sequential(Module):
-
-    def __init__(self, *modules) -> None:
+class Sequential:
+    def __init__(self, *args) -> None:
         super().__init__()
-        self.modules: list[Module] = []
-        for module in modules:
-            if not isinstance(module, Module):
-                raise TypeError(f"Expected instance of Module, got {type(module).__name__}")
-            self.modules.append(module)
-
-    def append(self, module: Module):
-        if not isinstance(module, Module):
-            raise TypeError(f"Expected instance of Module, got {type(module).__name__}")
-        self.modules.append(module)
+        self.modules = args
 
     def forward(self, x):
         for module in self.modules:
@@ -49,11 +39,10 @@ class Sequential(Module):
             if hasattr(module, "clear_gradients"):
                 module.clear_gradients()
 
-    def parameters(self):
-        param = {}
-        for m in self.modules:
-            param.update(m.parameters())
-        return param
+    def average_gradients(self, batch_size):
+        for module in self.modules:
+            if hasattr(module, "average_gradients"):
+                module.average_gradients(batch_size)
 
     def __repr__(self):
         return f"Sequential({'_'.join([module.__repr__() for module in self.modules])})"
@@ -62,18 +51,19 @@ class Sequential(Module):
         return f"Sequential({'_'.join([module.__str__() for module in self.modules])})"
 
 
-class Linear(Module):
-    def __init__(self, in_dim, out_dim):
+class Linear:
+    def __init__(self, in_dim, out_dim) -> None:
         super().__init__()
-        self.weights = np.random.randn(in_dim, out_dim)
-        self.bias = np.random.randn(1, out_dim)
+        self.weights = np.random.uniform(-np.sqrt(6 / in_dim), np.sqrt(6 / in_dim), (in_dim, out_dim))
+        self.bias = np.zeros((1, out_dim))
         self.weights_gradients = np.zeros((in_dim, out_dim))
         self.bias_gradients = np.zeros((1, out_dim))
         self.input = None
 
     def forward(self, x):
         self.input = x
-        return np.dot(x, self.weights) + self.bias
+        out = np.dot(x, self.weights) + self.bias
+        return out
 
     def backward(self, gradient):
         self.weights_gradients = np.dot(self.input.T, gradient)
@@ -81,15 +71,13 @@ class Linear(Module):
         grad_input = np.dot(gradient, self.weights.T)
         return grad_input
 
-    def parameters(self):
-        return {
-            f"linear_weights_{id(self)}": self.weights,
-            f"linear_bias_{id(self)}": self.bias
-        }
-
     def clear_gradients(self):
         self.weights_gradients = np.zeros_like(self.weights)
         self.bias_gradients = np.zeros_like(self.bias)
+
+    def average_gradients(self, batch_size):
+        self.weights_gradients /= batch_size
+        self.bias_gradients /= batch_size
 
     def __repr__(self):
         return f"Linear_{self.weights.shape[0]}_{self.weights.shape[1]}_{id(self)}"
