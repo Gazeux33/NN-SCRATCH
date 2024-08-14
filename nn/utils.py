@@ -3,6 +3,7 @@ from matplotlib import pyplot as plt
 
 
 def plot_decision_boundary(model, X, y, resolution=0.02):
+    fig = plt.figure(figsize=(10, 5))
     x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
     y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
     xx, yy = np.meshgrid(np.arange(x_min, x_max, resolution),
