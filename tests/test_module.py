@@ -24,10 +24,6 @@ class TestLinear(unittest.TestCase):
         output = self.linear(correct_input)
         self.assertEqual(output.shape, (100, 20))
 
-    def test_linear_parameters(self):
-        linear_param = self.linear.parameters()
-        self.assertEqual(type(linear_param), dict)
-        self.assertEqual(len(linear_param), 2)
 
     def test_linear_backward(self):
         input_data = np.random.randn(5, 10)

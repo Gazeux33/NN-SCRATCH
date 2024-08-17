@@ -11,6 +11,9 @@ class Loss(ABC):
     def backward(self, y_pred, y_true):
         return
 
+    def __call__(self, y_pred, y_true):
+        return self.forward(y_pred, y_true)
+
 
 class MSE(Loss):
     def __init__(self) -> None:
@@ -30,20 +33,20 @@ class CrossEntropy(Loss):
         self.y = None
 
     def forward(self, y_pred, y):
-        num_classes = y_pred.shape[1]
-        y_one_hot = np.zeros((y.size, num_classes))
-        y_one_hot[np.arange(y.size), y] = 1
-        self.y_pred = y_pred
-        self.y = y_one_hot
-        loss = -np.sum(y_one_hot * np.log(y_pred + 1e-9)) / y.shape[0]
+        y = y.astype(int)
+        batch_size = y_pred.shape[0]
+        y = y.flatten()  # Aplatir pour l'indexation
+        probs = y_pred[np.arange(batch_size), y]
+        loss = -np.mean(np.log(probs + 1e-9))
         return loss
 
-    @staticmethod
-    def backward(y_pred, y):
-        num_classes = y_pred.shape[1]
-        y_one_hot = np.zeros((y.size, num_classes))
-        y_one_hot[np.arange(y.size), y] = 1
-        return (y_pred - y_one_hot) / y.shape[0]
+    def backward(self,y_pred, y):
+        y = y.astype(int)
+        batch_size = y_pred.shape[0]
+        grad = y_pred.copy()
+        grad[np.arange(batch_size), y.flatten()] -= 1
+        grad = grad / batch_size
+        return grad
 
 
 class BCE(Loss):

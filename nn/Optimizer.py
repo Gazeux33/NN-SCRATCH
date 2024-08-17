@@ -4,6 +4,8 @@ import numpy as np
 
 
 class Optimizer(ABC):
+    def __init__(self):
+        pass
 
     @abstractmethod
     def step(self, model):
@@ -12,6 +14,7 @@ class Optimizer(ABC):
 
 class SGD(Optimizer):
     def __init__(self, lr=0.01):
+        super().__init__()
         self.lr = lr
 
     def step(self, model):

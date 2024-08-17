@@ -9,6 +9,7 @@ class TestLossFunctions(unittest.TestCase):
         mse = MSE()
         y_pred = np.array([0.5, 0.6, 0.7])
         y_true = np.array([1.0, 0.0, 0.0])
+        print(y_true.shape)
         expected_loss = np.mean((y_pred - y_true) ** 2)
         self.assertAlmostEqual(mse.forward(y_pred, y_true), expected_loss)
 
@@ -23,6 +24,7 @@ class TestLossFunctions(unittest.TestCase):
         cross_entropy = CrossEntropy()
         y_pred = np.array([[0.25, 0.25, 0.5]])
         y_true = np.array([[0, 0, 1]])
+        print(y_true.shape)
         expected_loss = -np.sum(y_true * np.log(y_pred))
         self.assertAlmostEqual(cross_entropy.forward(y_pred, y_true), expected_loss)
 

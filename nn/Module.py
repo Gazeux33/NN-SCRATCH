@@ -19,7 +19,7 @@ class Module(ABC):
         return self.forward(*args, **kwargs)
 
 
-class Sequential:
+class Sequential(Module):
     def __init__(self, *args) -> None:
         super().__init__()
         self.modules = args
@@ -51,7 +51,7 @@ class Sequential:
         return f"Sequential({'_'.join([module.__str__() for module in self.modules])})"
 
 
-class Linear:
+class Linear(Module):
     def __init__(self, in_dim, out_dim) -> None:
         super().__init__()
         self.weights = np.random.uniform(-np.sqrt(6 / in_dim), np.sqrt(6 / in_dim), (in_dim, out_dim))

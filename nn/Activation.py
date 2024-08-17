@@ -51,9 +51,5 @@ class Softmax(Module):
         self.output = exp_x / np.sum(exp_x, axis=1, keepdims=True)
         return self.output
 
-    @staticmethod
-    def backward(gradient):
+    def backward(self, gradient):
         return gradient
-
-
-
