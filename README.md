@@ -55,10 +55,6 @@ You can do regression, classification and binary classification.
 
 
 
-change the trainer
-shape problem beetween mse and crossentropy
-finish readme
-typing
 
 
 
