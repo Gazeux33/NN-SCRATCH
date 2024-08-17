@@ -8,28 +8,51 @@ You can do regression, classification and binary classification.
 
 ## Features
 ### Layers
-- [x] Linear Layer
+- ✅ Linear Layer
 
 ### Activation Functions
-- [x] ReLU
-- [x] Sigmoid
-- [x] Tanh
-- [x] Softmax
+- ✅ ReLU
+- ✅ Sigmoid
+- ✅ Tanh
+- ✅ Softmax
 
 ### Loss Functions
-- [x] MSE
-- [x] CrossEntropy
-- [x] BinaryCrossEntropy
+- ✅ MSE
+- ✅ CrossEntropy
+- ✅ BinaryCrossEntropy
 
 ### Optimizers
-- [x] SGD
-- [x] Adam
+- ✅ SGD
+- ✅ Adam
 
 
 ## Example of classification
 
+<div align="center">
+	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/multi_class2.png" width="700">
+</div>
+
+<div align="center">
+	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/mnist.png" width="700">
+</div>
+
+<div align="center">
+	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/binary_class.png" width="700">
+</div>
+
+
+
+
+
+
 
 ## Example of regression
+
+<div align="center">
+	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/regression.png" width="700">
+</div>
+
+
 
 
 change the trainer
