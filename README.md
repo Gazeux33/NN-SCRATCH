@@ -4,7 +4,7 @@ the goal in this project is to create a small and modular library to implements
 a classic neural networks. I was insipred by the architecure of pytorch and tensorflow
 to create my classes and functions.
 
-You can do regression, classification and binary classification.
+I'm doing this project because I'm still using libraries like pytorch and tensorflow and I wanted to implement a neural network myself from scratch.
 
 ## Features
 ### Layers
