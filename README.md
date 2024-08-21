@@ -1,4 +1,4 @@
-# Neural Networks from Scratch
+# Neural Networks Library from Scratch
 
 the goal in this project is to create a small and modular library to implements 
 a classic neural networks. I was insipred by the architecure of pytorch and tensorflow
