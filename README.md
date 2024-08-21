@@ -28,16 +28,28 @@ I'm doing this project because I'm still using libraries like pytorch and tensor
 
 ## Example of classification
 
-<div align="center">
-	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/multi_class2.png" width="700">
-</div>
+Multi classification
 
-<div align="center">
-	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/mnist.png" width="700">
+<div>
+	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/multi_class2.png" width="500">
 </div>
+<br>
+<br>
 
-<div align="center">
-	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/binary_class.png" width="700">
+
+Multi classification on the mnist dataset
+
+<div>
+	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/mnist.png" width="500">
+</div>
+<br>
+<br>
+
+
+Binary classification
+
+<div>
+	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/binary_class.png" width="500">
 </div>
 
 
@@ -48,8 +60,9 @@ I'm doing this project because I'm still using libraries like pytorch and tensor
 
 ## Example of regression
 
-<div align="center">
-	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/regression.png" width="700">
+Linear regression
+<div>
+	<img src="https://github.com/Gazeux33/NeuralNetwork/blob/main/assets/regression.png" width="500">
 </div>
 
 
