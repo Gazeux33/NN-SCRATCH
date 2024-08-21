@@ -26,7 +26,7 @@ I'm doing this project because I'm still using libraries like pytorch and tensor
 - ✅ Adam
 
 
-## Example of classification
+## Example of classification (see more in the example directory)
 
 Multi classification
 
