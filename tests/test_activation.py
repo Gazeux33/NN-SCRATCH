@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from nn.Activation import Relu, Sigmoid, Tanh, Softmax
+from PyNetworks.Activation import Relu, Sigmoid, Tanh, Softmax
 
 
 class TestActivations(unittest.TestCase):

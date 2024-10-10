@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from nn.Module import Linear, Sequential
+from PyNetworks.Module import Linear, Sequential
 
 
 class TestLinear(unittest.TestCase):

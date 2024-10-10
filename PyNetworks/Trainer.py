@@ -1,7 +1,7 @@
-from nn.Module import Module
-from nn.Loss import Loss
-from nn.Optimizer import Optimizer
-from nn.Dataloader import Dataloader
+from PyNetworks.Module import Module
+from PyNetworks.Loss import Loss
+from PyNetworks.Optimizer import Optimizer
+from PyNetworks.Dataloader import Dataloader
 
 
 class Trainer:

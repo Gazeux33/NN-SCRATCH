@@ -1,8 +1,8 @@
 import unittest
 import numpy as np
-from nn.Optimizer import SGD
-from nn.Module import Sequential, Linear
-from nn.Loss import MSE
+from PyNetworks.Optimizer import SGD
+from PyNetworks.Module import Sequential, Linear
+from PyNetworks.Loss import MSE
 
 
 class TestOptimizer(unittest.TestCase):

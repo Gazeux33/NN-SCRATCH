@@ -1,4 +1,4 @@
-from nn.Module import Module
+from PyNetworks.Module import Module
 import numpy as np
 
 

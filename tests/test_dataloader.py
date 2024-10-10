@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from nn.Dataloader import Dataloader
+from PyNetworks.Dataloader import Dataloader
 
 
 class TestDataloader(unittest.TestCase):

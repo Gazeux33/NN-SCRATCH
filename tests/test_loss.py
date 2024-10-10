@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from nn.Loss import MSE, CrossEntropy, BCE
+from PyNetworks.Loss import MSE, CrossEntropy, BCE
 
 
 class TestLossFunctions(unittest.TestCase):
